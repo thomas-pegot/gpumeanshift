@@ -7,8 +7,6 @@ import cv2
 from cv2.cv import PyrMeanShiftFiltering
 
 class TestGPUMeanShiftFilter(unittest.TestCase):
-	def SetUp(self):
-		self.path = "data/star.jpg"
 	def test_emptyNDArray(self):
 		empty_array = np.array([], dtype = np.uint8)
 		self.assertRaises(TypeError, filter, *[empty_array, 12, 12])

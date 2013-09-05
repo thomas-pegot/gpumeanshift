@@ -19,13 +19,13 @@ filter(PyObject *array, int Range = 10, int Spatial = 10)
 	if(Range < 0 || Spatial < 0)
 	{
 		PyErr_SetString(PyExc_ValueError, "Spatial and range radius must be greater than 0\n");
-		return NULL;
+		py::throw_error_already_set();	
 	}
 
 	if(!PyArray_Check(array))
 	{
 		PyErr_SetString(PyExc_TypeError, "First argument is not a numpy array.");
-		return NULL;
+		py::throw_error_already_set();	
 	}
 
 	int typenum = PyArray_TYPE(array), new_typenum = typenum;
@@ -36,19 +36,19 @@ filter(PyObject *array, int Range = 10, int Spatial = 10)
 	if( type < 0 )
 	{
 		PyErr_SetString(PyExc_TypeError, "Type is not supported");
-		return NULL;
+		py::throw_error_already_set();	
 	}
 
 	int ndims = PyArray_NDIM(array);
 	if(ndims >= 5)
 	{
 		PyErr_SetString(PyExc_TypeError, "dimensions is to high");
-		return NULL;
+		py::throw_error_already_set();	
 
 	}else if(ndims < 3)
 	{
 		PyErr_SetString(PyExc_TypeError, " dimension to low: need 3 or 4 dims");
-		return NULL;
+		py::throw_error_already_set();	
 	}
 
 	cv::Mat processedImage ;
