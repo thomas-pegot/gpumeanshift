@@ -12,10 +12,12 @@ How to use:
 <code>
 git clone https://github.com/thomas-pegot/gpumeanshift.git
 
+<code>
 cd gpumeanshift
 
+<code>
 make
-</code>
+
 
 -->launch python:
 
