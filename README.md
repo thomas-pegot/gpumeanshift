@@ -7,30 +7,24 @@ Python binding OpenCV gpu::meanshift with Boost.Numpy library.
 How to use:
 -----------
 
--->download and build:
+-download and build:
 
-<code>
+```
 git clone https://github.com/thomas-pegot/gpumeanshift.git
-
-<code>
 cd gpumeanshift
-
-<code>
 make
+```
 
+-launch python:
 
--->launch python:
+```python
+from gpumeanshift import filter
 
-<code>
-ipython
+import cv2
 
->from gpumeanshift import filter
+I = cv2.imread("data/star.jpg", cv2.IMREAD_COLOR)
 
->import cv2
+Out = filter(I, 12, 12)
 
->I = cv2.imread("data/star.jpg", cv2.IMREAD_COLOR)
-
->Out = filter(I, 12, 12)
-
->cv2.imshow("result",Out)
-</code>
+cv2.imshow("result",Out)
+```
